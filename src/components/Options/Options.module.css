@@ -1,6 +1,7 @@
 .container {
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
   gap: 15px;
   align-items: center;
   margin: 10px;
@@ -8,7 +9,7 @@
 
 .btn {
   display: flex;
-
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   border-radius: 10px;
