@@ -5,6 +5,15 @@ export default function Feedback({
   totalFeedback,
   positive,
 }) {
+  let positiveClass = "";
+  if (positive < 40) {
+    positiveClass = css.low;
+  } else if (positive >= 40 && positive < 70) {
+    positiveClass = css.medium;
+  } else if (positive >= 70) {
+    positiveClass = css.high;
+  }
+
   return (
     <div className={css.container}>
       <h2 className={css.feedbackSum}>Feedback Summary</h2>
@@ -13,7 +22,9 @@ export default function Feedback({
       <p className={css.text}>Bad: {bad}</p>
 
       <p className={css.text}>Total: {totalFeedback}</p>
-      <p className={css.text}>Positive: {positive}%</p>
+      <p className={`${css.text} ${css.textPositive} ${positiveClass}`}>
+        Positive: {positive}%
+      </p>
     </div>
   );
 }

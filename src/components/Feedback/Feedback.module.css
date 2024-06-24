@@ -6,3 +6,30 @@
   align-items: center;
   margin: 20px;
 }
+.text {
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+  width: 100px;
+  text-align: center;
+}
+.textPositive {
+  padding: 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.low {
+  background: rgba(244, 48, 48, 0.678);
+  border-color: red;
+}
+
+.medium {
+  background: rgba(235, 164, 33, 0.643);
+  border-color: orange;
+}
+
+.high {
+  background: rgba(45, 241, 45, 0.643);
+  border-color: green;
+}

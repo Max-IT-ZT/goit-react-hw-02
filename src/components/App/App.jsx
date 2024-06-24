@@ -1,18 +1,20 @@
 import css from "./App.module.css";
-
 import Description from "../Description/Description";
 import Options from "../Options/Options";
 import { useState, useEffect } from "react";
 import Feedback from "../Feedback/Feedback";
 import Notification from "../Notification/Notification";
 
+//? Робимо змінну в яку записуємо функцію яку використовуємо в useState для зчитування з локал сторедж ще до монтування комполнента
+const getInitialFeedback = () => {
+  const savedFeedback = localStorage.getItem("feedback");
+  return savedFeedback
+    ? JSON.parse(savedFeedback)
+    : { good: 0, neutral: 0, bad: 0 };
+};
+
 export default function App() {
-  const [feedback, setFeedback] = useState(() => {
-    const savedFeedback = localStorage.getItem("feedback");
-    return savedFeedback
-      ? JSON.parse(savedFeedback)
-      : { good: 0, neutral: 0, bad: 0 };
-  });
+  const [feedback, setFeedback] = useState(getInitialFeedback);
   useEffect(() => {
     localStorage.setItem("feedback", JSON.stringify(feedback));
   }, [feedback]);
